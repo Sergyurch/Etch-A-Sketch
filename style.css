@@ -3,10 +3,14 @@ body {
 }
 
 h1 {
-	background-color: antiquewhite;
+	background-color: wheat;
 	display: inline-block;
 	border-radius: 10px;
 	padding: 0 10px;
+}
+
+h2 {
+	margin: 0;
 }
 
 .shadow {
@@ -14,7 +18,7 @@ h1 {
 }
 
 #container {
-	width: 960px;
+	width: 660px;
 	text-align: center;
 	margin: auto;
 }
@@ -24,30 +28,56 @@ h1 {
 	width: 500px;
 	height: 500px;
 	margin: auto;
+	background-color: white;
 }
 
 #controls {
 	display: grid;
-	grid-template-columns: auto auto auto auto;
+	grid-template-columns: 15% 15% auto 20%;
 	grid-template-rows: auto auto;
+	grid-column-gap: 10px;
+	grid-row-gap: 10px;
+	background-color: wheat;
+	border-radius: 10px;
+	padding: 10px;
+	margin-top: 20px;
 }
 
 #clear {
 	grid-area: 1 / 1 / 3 / 2;
+	align-self: center;
+}
+
+#slider {
+	grid-area: 2 / 3 / 3 / 4;
+	background-color: white;
+	border-top: 18px solid tan;
+	border-bottom: 18px solid tan;
+	border-left: 10px solid tan;
+	border-right: 10px solid tan;
+	box-sizing: border-box;
 }
 
 #size {
 	grid-area: 1 / 2 / 3 / 3;
+	align-self: center;
 }
 
 #erase {
-	grid-area: 2 / 4 / 3 / 5;
-}
-
-#color {
 	grid-area: 1 / 4 / 2 / 5;
 }
 
-#opacity {
-	grid-area: 1 / 3 / 3 / 4;
+#color {
+	grid-area: 2 / 4 / 3 / 5;
+}
+
+#opacity_header {
+	grid-area: 1 / 3 / 2 / 4;
+	align-self: center;
+}
+
+button {
+	background-color: tan;
+	border-radius: 10px;
+	height: 40px;
 }
