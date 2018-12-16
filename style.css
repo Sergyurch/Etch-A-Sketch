@@ -65,10 +65,16 @@ h2 {
 
 #erase {
 	grid-area: 1 / 4 / 2 / 5;
+	text-align: justify;
+	padding-left: 10px;
+	padding-right: 5px;
+	line-height: 29px;
 }
 
 #color {
 	grid-area: 2 / 4 / 3 / 5;
+	text-align: left;
+	padding-left: 10px;
 }
 
 #opacity_header {
@@ -80,4 +86,13 @@ button {
 	background-color: tan;
 	border-radius: 10px;
 	height: 40px;
+}
+
+#erase > div {
+	display: inline-block;
+	width: 55%;
+	height: 85%;
+	background-color: gray;
+	border-radius: 10px;
+	float:right;
 }
