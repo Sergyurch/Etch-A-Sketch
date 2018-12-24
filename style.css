@@ -56,6 +56,17 @@ h2 {
 	border-left: 10px solid tan;
 	border-right: 10px solid tan;
 	box-sizing: border-box;
+	position: relative;
+}
+
+#slider div {
+	height: 20px;
+	width: 10px;
+	border: 1px solid gray;
+	position: absolute;
+	right: 50%;
+	top: -9px;
+	background-color: white;
 }
 
 #size {
@@ -65,7 +76,7 @@ h2 {
 
 #erase {
 	grid-area: 1 / 4 / 2 / 5;
-	text-align: justify;
+	text-align: left;
 	padding-left: 10px;
 	padding-right: 5px;
 	line-height: 29px;
@@ -88,11 +99,25 @@ button {
 	height: 40px;
 }
 
-#erase > div {
+.tg_background {
 	display: inline-block;
-	width: 55%;
-	height: 85%;
-	background-color: gray;
-	border-radius: 10px;
+	width: 60%;
+	height: 29px;
+	background-color: lightgray;
+	border-radius: 5px;
 	float:right;
+	padding: 2px;
+	box-sizing: border-box;
+}
+
+.tg {
+	width: 25px;
+	height: 25px;
+	background-color: white;
+	border-radius: 5px;
+	float: left;
+}
+
+.tg_background:hover .tg {
+	background-color: tan;
 }
