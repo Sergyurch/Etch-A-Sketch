@@ -24,11 +24,12 @@ h2 {
 }
 
 #field {
-	border: 1px solid black;
+	brder: 1px solid black;
 	width: 500px;
 	height: 500px;
 	margin: auto;
 	background-color: white;
+	line-height: 0;
 }
 
 #controls {
@@ -120,4 +121,40 @@ button {
 
 .tg_background:hover .tg {
 	background-color: tan;
+}
+
+option[value="black"] {
+	background-color: black;
+	color: white;
+}
+
+option[value="red"] {
+	background-color: red;
+}
+
+option[value="orange"] {
+	background-color: orange;
+}
+
+option[value="yellow"] {
+	background-color: yellow;
+}
+
+option[value="green"] {
+	background-color: green;
+}
+
+option[value="blue"] {
+	background-color: blue;
+	color: white;
+}
+
+option[value="violet"] {
+	background-color: violet;
+}
+
+#field div {
+	box-sizing: border-box;
+	border: 0.5px solid black;
+	display: inline-block;
 }
