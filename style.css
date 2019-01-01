@@ -24,7 +24,6 @@ h2 {
 }
 
 #field {
-	brder: 1px solid black;
 	width: 500px;
 	height: 500px;
 	margin: auto;
@@ -58,6 +57,7 @@ h2 {
 	border-right: 10px solid tan;
 	box-sizing: border-box;
 	position: relative;
+	padding: 0px;
 }
 
 #slider div {
@@ -80,7 +80,12 @@ h2 {
 	text-align: left;
 	padding-left: 10px;
 	padding-right: 5px;
-	line-height: 29px;
+	padding-top: 5px;
+	line-height: 30px;
+	background-color: tan;
+	border-radius: 10px;
+	height: 40px;
+	box-sizing: border-box;
 }
 
 #color {
@@ -100,15 +105,20 @@ button {
 	height: 40px;
 }
 
+button:focus, div:focus {
+	outline: 0px;	
+}
+
 .tg_background {
 	display: inline-block;
 	width: 60%;
-	height: 29px;
+	height: 30px;
 	background-color: lightgray;
 	border-radius: 5px;
 	float:right;
 	padding: 2px;
 	box-sizing: border-box;
+	text-align: left;
 }
 
 .tg {
@@ -116,11 +126,17 @@ button {
 	height: 25px;
 	background-color: white;
 	border-radius: 5px;
-	float: left;
+	/* float: left; */
+	display: inline-block;
 }
 
 .tg_background:hover .tg {
 	background-color: tan;
+}
+
+option[value="random"] {
+	background-color: white;
+	color: black;
 }
 
 option[value="black"] {
@@ -157,4 +173,9 @@ option[value="violet"] {
 	box-sizing: border-box;
 	border: 0.5px solid black;
 	display: inline-block;
+}
+
+.switched_on {
+	background-color: green;
+	text-align: right;
 }
