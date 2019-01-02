@@ -22,7 +22,7 @@ sizeButton.addEventListener('click', function(){
 });
 
 const eraseButton = document.querySelector('#erase .tg_background');
-eraseButton.addEventListener('click', function(){
+eraseButton.addEventListener('click', function() {
 	eraseButton.classList.toggle('switched_on');
     if (erase == true) {
         erase = false;
@@ -76,26 +76,27 @@ color.addEventListener('change', function() {
     }
 });
 
-field.onselectstart = field.onmousemove = function() {return false;};
-
+field.onselectstart = /*field.onmousemove =*/ function() {return false;};
 field.addEventListener('mousedown', function(e) {
 	if (e.target == field) return;
+	//e.stopPropagation();
+	console.log(e.target);
 	e.target.style.backgroundColor = getSelectedColor();
 	if (erase) {
 		e.target.style.opacity = null;
 	} else {
 		e.target.style.opacity = opacity;
 	}
-	console.log('down');
+	//console.log('down');
 	field.onmouseover = function(e) {
-		if (e.target == field) return;
+		if (e.target == field) return;    
 		e.target.style.backgroundColor = getSelectedColor();
 		if (erase) {
 			e.target.style.opacity = null;
 		} else {
 			e.target.style.opacity = opacity;
 		}
-		console.log(e.target);
+		//console.log(e.target);
 	};
 	document.onmouseup = function() {
 		field.onmouseover = null;
