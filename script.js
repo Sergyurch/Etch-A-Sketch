@@ -76,27 +76,25 @@ color.addEventListener('change', function() {
     }
 });
 
-field.onselectstart = /*field.onmousemove =*/ function() {return false;};
+field.onselectstart = function() {return false;};
 field.addEventListener('mousedown', function(e) {
-	if (e.target == field) return;
-	//e.stopPropagation();
-	console.log(e.target);
-	e.target.style.backgroundColor = getSelectedColor();
-	if (erase) {
-		e.target.style.opacity = null;
-	} else {
-		e.target.style.opacity = opacity;
-	}
-	//console.log('down');
-	field.onmouseover = function(e) {
-		if (e.target == field) return;    
+	if (e.target.hasAttribute('data-fieldDiv')) {
 		e.target.style.backgroundColor = getSelectedColor();
 		if (erase) {
 			e.target.style.opacity = null;
 		} else {
 			e.target.style.opacity = opacity;
 		}
-		//console.log(e.target);
+	}	
+	field.onmouseover = function(e) {
+		if (e.target.hasAttribute('data-fieldDiv')) {
+			e.target.style.backgroundColor = getSelectedColor();
+			if (erase) {
+				e.target.style.opacity = null;
+			} else {
+				e.target.style.opacity = opacity;
+			}
+		}
 	};
 	document.onmouseup = function() {
 		field.onmouseover = null;
@@ -111,6 +109,7 @@ function makeField(size) {
 		div.style.height = parent.clientHeight / size + 'px';
 		div.style.backgroundColor = null;
 		div.style.opacity = null;
+		div.setAttribute('data-fieldDiv','');
 		parent.appendChild(div);
 	}
 }
