@@ -1,27 +1,30 @@
 let fieldSize = 16;
 let erase = false;
 let opacity = 0.5;
-makeField(fieldSize);
-
 const opacityHeaderSpan = document.querySelector('#opacity_header span');
 const field = document.getElementById('field');
 const clearButton = document.getElementById('clear');
+const sizeButton = document.getElementById('size');
+const eraseButton = document.querySelector('#erase .tg_background');
+const slider = document.querySelector('#slider div');
+const color = document.getElementById('color');
+makeField(fieldSize);
+
+
 clearButton.addEventListener('click', function(){
 	let divs = document.querySelectorAll('#field div');
 	for (let i=0; i<divs.length; i++) {
 		divs[i].style.backgroundColor = null;
-		divs[i].style.opacity = null;
+		divs[i].style.opacity = 0;
 	}
 });
 
-const sizeButton = document.getElementById('size');
 sizeButton.addEventListener('click', function(){
 	let size = getFieldSize();
 	field.innerHTML = '';
 	makeField(size);
 });
 
-const eraseButton = document.querySelector('#erase .tg_background');
 eraseButton.addEventListener('click', function() {
 	eraseButton.classList.toggle('switched_on');
     if (erase == true) {
@@ -33,7 +36,6 @@ eraseButton.addEventListener('click', function() {
     }
 });
 
-const slider = document.querySelector('#slider div');
 slider.addEventListener('mousedown', function(e) {
 	document.onmousemove = function(e) {
 		let leftSide = slider.parentNode.getBoundingClientRect().left + slider.parentNode.clientLeft;
@@ -56,7 +58,6 @@ slider.addEventListener('mousedown', function(e) {
 	};
 });
 
-const color = document.getElementById('color');
 color.addEventListener('change', function() {
 	let colors = document.querySelectorAll('#color option');
     for (let i=0; i<colors.length; i++) {
@@ -78,23 +79,9 @@ color.addEventListener('change', function() {
 
 field.onselectstart = function() {return false;};
 field.addEventListener('mousedown', function(e) {
-	if (e.target.hasAttribute('data-fieldDiv')) {
-		e.target.style.backgroundColor = getSelectedColor();
-		if (erase) {
-			e.target.style.opacity = null;
-		} else {
-			e.target.style.opacity = opacity;
-		}
-	}	
+	makeAction(e);
 	field.onmouseover = function(e) {
-		if (e.target.hasAttribute('data-fieldDiv')) {
-			e.target.style.backgroundColor = getSelectedColor();
-			if (erase) {
-				e.target.style.opacity = null;
-			} else {
-				e.target.style.opacity = opacity;
-			}
-		}
+		makeAction(e);
 	};
 	document.onmouseup = function() {
 		field.onmouseover = null;
@@ -107,9 +94,8 @@ function makeField(size) {
 		let parent = document.getElementById('field');
 		div.style.width = parent.clientWidth / size + 'px';
 		div.style.height = parent.clientHeight / size + 'px';
-		div.style.backgroundColor = null;
-		div.style.opacity = null;
-		div.setAttribute('data-fieldDiv','');
+		div.style.opacity = 0;
+		div.setAttribute('data-fielddiv','');
 		parent.appendChild(div);
 	}
 }
@@ -126,7 +112,7 @@ function getRandomColor() {
 	let r = Math.floor(Math.random() * 256);
 	let g = Math.floor(Math.random() * 256);
 	let b = Math.floor(Math.random() * 256);
-	return 'rgba(' +r +',' +g +',' +b + opacity +')';
+	return 'rgb(' +r +',' +g +',' +b +')';
 }
 
 function getSelectedColor() {
@@ -138,4 +124,17 @@ function getSelectedColor() {
     		return colors[i].value;
     	}
     }
+}
+
+function makeAction(e) {
+	if (e.target.hasAttribute('data-fieldDiv')) {
+		if (erase) {
+			e.target.style.opacity = 0;
+		} else if (e.target.style.opacity != 0) {
+			e.target.style.opacity = +e.target.style.opacity + +opacity +'';
+		} else {
+			e.target.style.backgroundColor = getSelectedColor();
+			e.target.style.opacity = opacity;
+		}
+	}	
 }

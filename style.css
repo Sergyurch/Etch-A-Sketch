@@ -13,6 +13,51 @@ h2 {
 	margin: 0;
 }
 
+button {
+	background-color: tan;
+	border-radius: 10px;
+	height: 40px;
+}
+
+button:focus, div:focus {
+	outline: 0px;	
+}
+
+option[value="random"] {
+	background-color: white;
+	color: black;
+}
+
+option[value="black"] {
+	background-color: black;
+	color: white;
+}
+
+option[value="red"] {
+	background-color: red;
+}
+
+option[value="orange"] {
+	background-color: orange;
+}
+
+option[value="yellow"] {
+	background-color: yellow;
+}
+
+option[value="green"] {
+	background-color: green;
+}
+
+option[value="blue"] {
+	background-color: blue;
+	color: white;
+}
+
+option[value="violet"] {
+	background-color: violet;
+}
+
 .shadow {
 	box-shadow: 0 0 10px grey;
 }
@@ -99,16 +144,6 @@ h2 {
 	align-self: center;
 }
 
-button {
-	background-color: tan;
-	border-radius: 10px;
-	height: 40px;
-}
-
-button:focus, div:focus {
-	outline: 0px;	
-}
-
 .tg_background {
 	display: inline-block;
 	width: 60%;
@@ -134,44 +169,8 @@ button:focus, div:focus {
 	background-color: tan;
 }
 
-option[value="random"] {
-	background-color: white;
-	color: black;
-}
-
-option[value="black"] {
-	background-color: black;
-	color: white;
-}
-
-option[value="red"] {
-	background-color: red;
-}
-
-option[value="orange"] {
-	background-color: orange;
-}
-
-option[value="yellow"] {
-	background-color: yellow;
-}
-
-option[value="green"] {
-	background-color: green;
-}
-
-option[value="blue"] {
-	background-color: blue;
-	color: white;
-}
-
-option[value="violet"] {
-	background-color: violet;
-}
-
 #field div {
 	box-sizing: border-box;
-	order: 0.5px solid black;
 	display: inline-block;
 }
 
