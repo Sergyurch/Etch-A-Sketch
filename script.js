@@ -36,6 +36,7 @@ eraseButton.addEventListener('click', function() {
     }
 });
 
+document.getElementById('slider').onselectstart = function() {return false;};
 slider.addEventListener('mousedown', function(e) {
 	document.onmousemove = function(e) {
 		let leftSide = slider.parentNode.getBoundingClientRect().left + slider.parentNode.clientLeft;

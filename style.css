@@ -13,7 +13,7 @@ h2 {
 	margin: 0;
 }
 
-button {
+button, #slider {
 	background-color: tan;
 	border-radius: 10px;
 	height: 40px;
